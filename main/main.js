@@ -74,10 +74,13 @@ const createWindow = () => {
     // Open DevTools
     // mainWindow.webContents.toggleDevTools();
 
+    mainWindow.webContents.on("did-finish-load", e => {
+        setDefaultConfigs();
+    });
+
     mainWindow.on("closed", () => {
         mainWindow = null;
     });
-
 }
 
 // ipc for showing the spinner
@@ -115,26 +118,41 @@ const defaultValueSetDialog = () => {
 
 const showMessageDialog = () => {
 
-    const { defaultFolderPath, defaultSearchKeyWord, defaultNeglectFolders } = config;
-    // No folder selected
+    const userDataPath = app.getPath("userData");
+    const configPath = path.join(userDataPath, "config.json");
 
-    if (
-        (defaultFolderPath.length === 0 || defaultFolderPath == "No folder selected") &&
-        (defaultSearchKeyWord.length === 0) &&
-        (defaultNeglectFolders.length === 0)
-    ) {
-        const userDataPath = app.getPath("userData");
-        const configPath = path.join(userDataPath, "appConfig.json");
-        if (fs.existsSync(configPath)) {
-            const contents = fs.readFileSync(configPath);
-            if (!JSON.parse(contents).checkboxChecked) {
+    if (fs.existsSync(configPath)) {
+        const contents = JSON.parse(fs.readFileSync(configPath, "utf-8"));
+        const { defaultFolderPath, defaultSearchKeyWord, defaultNeglectFolders } = contents;
+
+        if (
+            (defaultFolderPath.length === 0 || defaultFolderPath == "No folder selected") &&
+            (defaultSearchKeyWord.length === 0) &&
+            (defaultNeglectFolders.length === 0)
+        ) {
+            const userDataPath = app.getPath("userData");
+            const configPath = path.join(userDataPath, "appConfig.json");
+            if (fs.existsSync(configPath)) {
+                const contents = fs.readFileSync(configPath, "utf-8");
+                if (!JSON.parse(contents).checkboxChecked) {
+                    defaultValueSetDialog();
+                }
+            }
+            else {
                 defaultValueSetDialog();
             }
         }
-        else {
-            defaultValueSetDialog();
-        }
     }
+    else {
+        defaultValueSetDialog();
+    }
+}
+
+const setDefaultConfigs = () => {
+    // Set the initial config
+    const userDataPath = app.getPath("userData");
+    const configPath = path.join(userDataPath, "config.json");
+    mainWindow.webContents.send("set-configs", configPath);
 }
 
 // Electron app is ready

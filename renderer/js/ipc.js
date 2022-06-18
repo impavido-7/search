@@ -7,6 +7,7 @@ const modal = document.getElementById("modal");
 
 // Import modules
 const config = require("../config/config.json");
+const setDefaultConfigurations = require("./setDefaultConfigurations");
 
 ipcRenderer.on("answer-folder-clicked-dialog", (e, arg) => {
     if (arg)
@@ -42,6 +43,11 @@ ipcRenderer.on("answer-open-download-dialog", (e, args) => {
 
 ipcRenderer.on("open-dialog", e => {
     modal.style.display = "flex";
+});
+
+ipcRenderer.on("set-configs", (e, args) => {
+    // Set the default values in main
+    setDefaultConfigurations(args);
 });
 
 exports.folderSelect = (from = "main") => {
