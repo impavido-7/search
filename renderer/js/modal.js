@@ -19,11 +19,6 @@ const folderSelectedElement = document.getElementById("folder-selected");
 
 const config = require("../config/config.json");
 
-// Set the default values
-folderSelected.innerText = config.defaultFolderPath;
-searchKeyword.value = config.defaultSearchKeyWord;
-neglectFolder.value = config.defaultNeglectFolders.join(" ");
-
 selectFolder.addEventListener("click", e => {
     e.preventDefault();
     folderSelect("dialog");
@@ -32,6 +27,15 @@ selectFolder.addEventListener("click", e => {
 closeButton.addEventListener("click", e => {
     modal.style.display = "none";
 });
+
+const writeToUserData = () => {
+    const obj = {
+        defaultFolderPath: config.defaultFolderPath,
+        defaultSearchKeyWord: config.defaultSearchKeyWord,
+        defaultNeglectFolders: config.defaultNeglectFolders
+    }
+    fs.writeFileSync(this.setFolderPath, JSON.stringify(obj));
+}
 
 saveButton.addEventListener("click", e => {
     folderSelectedElement.innerText = folderSelected.innerText;
@@ -43,5 +47,10 @@ saveButton.addEventListener("click", e => {
     const neglectFolderValue = neglectFolder.value.trim().split(" ");
     if (neglectFolderValue[0].length)
         config.defaultNeglectFolders = neglectFolderValue;
+    else
+        config.defaultNeglectFolders = [];
     fs.writeFileSync(path.join(__dirname, "../config/config.json"), JSON.stringify(config));
+    writeToUserData();
 });
+
+exports.setFolderPath = [];

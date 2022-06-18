@@ -1,6 +1,5 @@
 const { dialog } = require("electron");
 const path = require("path");
-const settings = require('electron-settings');
 
 exports.showDialog = async (args) => {
     const dir = await dialog.showOpenDialog({
