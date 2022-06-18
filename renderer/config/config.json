@@ -1,0 +1,10 @@
+{
+    "defaultFolderPath": "",
+    "defaultSearchKeyWord": "",
+    "defaultNeglectFolders": [],
+    "dialogMessageArray": [
+        "Complete List",
+        "Filtered List",
+        "Cancel"
+    ]
+}

@@ -1,0 +1,39 @@
+.result-parameters-container {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+#results-parameter-btn {
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+    border: 2px solid #29a03b;
+    background-color: #5bd46d;
+    margin-right: 20px;
+    padding: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    background-image: -webkit-linear-gradient(top, #5bd46d 0, #29a03b 100%);
+    background-image: linear-gradient(to bottom, #5bd46d 0, #29a03b 100%);
+}
+
+#results-parameter-btn:active {
+    background-color: #34c84a;
+    background-image: -webkit-linear-gradient(top, #34c84a 0, #248b34 100%);
+    background-image: linear-gradient(to bottom, #34c84a 0, #248b34 100%);
+}
+
+#results-parameter-img {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.result-button-container {
+    display: flex;
+    align-items: center;
+}
+
+#total-hit-count {
+    margin-left: 10px;
+}

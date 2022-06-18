@@ -1,0 +1,54 @@
+.filter-container {
+    margin: 20px 20px 20px 0;
+    border: 2px solid black;
+    padding: 15px;
+    background-color: #f5f5f4;
+    border-radius: 10px;
+    /* position: -webkit-sticky;
+    position: sticky;
+    top: 0; */
+}
+
+.align-items-center {
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.filter-label {
+    white-space: nowrap;
+}
+
+.margin-top-10px {
+    margin-top: 10px;
+}
+
+.margin-bottom-10px {
+    margin-bottom: 10px;
+}
+
+#editor-picked {
+    margin-left: 20px;
+}
+
+.spacer {
+    width: 15px;
+}
+
+.flex-one {
+    flex: 1;
+}
+
+.flex-one>input {
+    margin-top: 5px;
+}
+
+.flex-one>select {
+    margin-top: 5px;
+}
+
+.filter-label-heading {
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
