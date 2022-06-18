@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/toggleButtonStyles.css">
+    <link rel="stylesheet" href="styles/formStyles.css">
+    <link rel="stylesheet" href="styles/resultStyles.css">
+    <link rel="stylesheet" href="styles/filterStyles.css">
+    <link rel="stylesheet" href="styles/resultParameters.css">
+    <link rel="stylesheet" href="styles/modalStyles.css">
+    <title> Search </title>
+</head>
+
+<body>
+
+    <div class="parent">
+
+        <!-- Show Modal -->
+        <div id="modal">
+            <div class="modal-container">
+                <div class="form-entry">
+                    <button id="select-folder-dialog" class="folder-btn"> Set default folder </button>
+                    <h5 class="folder-selected-heading"> Folder Selected: </h5>
+                    <p id="folder-selected-dialog"> No folder selected </p>
+                </div> <br />
+                <div class="form-entry">
+                    <label> Set default search keyword </label>
+                    <input id="keyword-dialog" type="text" class="form-control" placeholder="Default Search Keyword"
+                        title="You can enter only one entry here">
+                </div> <br />
+                <div class="form-entry">
+                    <label> Set default neglect folders </label>
+                    <input id="neglect-folders-dialog" type="text" class="form-control"
+                        placeholder="Default Neglect Folders"
+                        title="You can enter multiple folders seperated by a space">
+                </div> <br />
+                <div class="form-entry button-container-modal">
+                    <button id="modal-close" class="folder-btn"> Close </button>
+                    <button id="modal-save" class="folder-btn"> Save </button>
+                </div> <br />
+            </div>
+        </div>
+
+        <!-- Search -->
+        <div class="container_one">
+            <div class="mainWrapper">
+                <h2> Search </h2>
+                <hr /> <br />
+                <form class="flex-display flex-column">
+                    <div class="form-entry">
+                        <button id="select-folder" class="folder-btn"> Select folder </button>
+                        <h5 class="folder-selected-heading"> Folder Selected: </h5>
+                        <p id="folder-selected"> No folder selected </p>
+                    </div>
+                    <br />
+                    <div class="form-entry">
+                        <label> Search for keyword </label>
+                        <input id="keyword" type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <br />
+                    <div class="form-entry">
+                        <label> Neglect from folders </label>
+                        <input id="neglect-folders" type="text" class="form-control" placeholder="Neglect Folders"
+                            title="You can enter multiple folders seperated by a space">
+                    </div>
+                    <br /> <br />
+                    <div class="form-entry flex-display">
+                        <label class="flex-title"> Case sensitive </label>
+                        <label class="switch">
+                            <input id="toggleButton" type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <br />
+                </form>
+                <button id="search" class="btn"> Search </button>
+            </div>
+        </div>
+
+        <div class="container_two">
+
+            <!-- Filters Section -->
+            <div class="filter-container">
+                <h2> Filter </h2>
+                <hr /> <br />
+
+                <!-- Choose editor -->
+                <div class="flex-display align-items-center">
+                    <label class="filter-label filter-label-heading">
+                        Pick editor:
+                    </label>
+                    <select class="form-control" id="editor-picked">
+                        <option selected value="code"> VS Code </option>
+                        <option value="notepad++"> Notepad++ </option>
+                        <option value="atom"> Atom </option>
+                    </select>
+                </div>
+
+                <br />
+                <hr /> <br />
+
+                <!-- Filter results with filenames -->
+                <div class="flex-display flex-column">
+                    <div class="filter-label-heading margin-bottom-10px">
+                        Filter by filenames
+                    </div>
+                    <div class="flex-display margin-top-10px">
+                        <div class="flex-one">
+                            <label> Include </label>
+                            <input type="text" class="form-control" placeholder="abc" id="file-path-include"
+                                title="You can enter multiple entries divided by spaces and then press enter" />
+                        </div>
+                        <div class="spacer"> </div>
+                        <div class="flex-one">
+                            <label> Neglect </label>
+                            <input type="text" class="form-control" placeholder="abc" id="file-path-neglect"
+                                title="You can enter multiple entries divided by spaces and then press enter" />
+                        </div>
+                        <div class="spacer"> </div>
+                        <div class="flex-one">
+                            <label> Neglect files from </label>
+                            <select class="form-control" id="file-path-search-from">
+                                <option selected value="filter"> Filter Results </option>
+                                <option value="complete"> Complete Results </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+                <hr /> <br />
+
+                <!-- Filter result with line-contents-->
+                <div class="flex-display flex-column">
+                    <div class="filter-label-heading margin-bottom-10px">
+                        Filter by file contents
+                    </div>
+                    <div>
+                        <div class="flex-display margin-top-10px">
+                            <div class="flex-one">
+                                <label> Include </label>
+                                <input type="text" class="form-control" placeholder="abc" id="line-contents-include"
+                                    title="You can enter multiple entries divided by spaces and then press enter" />
+                            </div>
+                            <div class="spacer"> </div>
+                            <div class="flex-one">
+                                <label> Search style </label>
+                                <select class="form-control" id="line-contents-search-style">
+                                    <option selected value="includeAtleastOne">
+                                        Atleast one entry should present
+                                    </option>
+                                    <option value="includeAll"> All the entries should be present </option>
+                                </select>
+                            </div>
+                            <div class="spacer"> </div>
+                            <div class="flex-one">
+                                <label> Search from </label>
+                                <select class="form-control" id="line-contents-search-from">
+                                    <option selected value="filter"> Filter List </option>
+                                    <option value="complete"> Complete List </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex-display margin-top-10px">
+                            <div class="flex-one">
+                                <label> Neglect </label>
+                                <input type="text" class="form-control" placeholder="abc" id="line-contents-neglect"
+                                    title="You can enter multiple entries divided by spaces and then press enter" />
+                            </div>
+                            <div class="spacer"> </div>
+                            <div class="flex-one">
+                                <label> Neglect style </label>
+                                <select class="form-control" id="line-contents-neglect-style">
+                                    <option selected value="includeAtleastOne">
+                                        Atleast one entry should present
+                                    </option>
+                                    <option value="includeAll"> All the entries should be present </option>
+                                </select>
+                            </div>
+                            <div class="spacer"> </div>
+                            <div class="flex-one">
+                                <label> Neglect from </label>
+                                <select class="form-control" id="line-contents-neglect-from">
+                                    <option selected value="filter"> Filter List </option>
+                                    <option value="complete"> Complete List </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Results Section -->
+            <div>
+                <!-- When we get some results -->
+                <div id="results-container">
+                    <h2> Results </h2>
+
+                    <div class="result-parameters-container">
+                        <div class="flex-display">
+                            <p> <strong> Total hits: </strong> </p>
+                            <p id="total-hit-count"> </p>
+                        </div>
+                        <div class="result-button-container">
+                            <button id="results-parameter-btn" title="Open the filtered files in your default app">
+                                Open All Files
+                            </button>
+                            <img id="results-parameter-img" title="Download the results in excel sheet"
+                                src="./icons/download.png">
+                        </div>
+                    </div>
+
+                    <hr> <br>
+
+                    <ol id="results"></ol>
+                </div>
+
+                <!-- When we don't have any results -->
+                <div id="no-results">
+                    <h3> What a unique search !!! </h3>
+                    <p> There are no results for this search :( </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        require("./js/modal.js");
+        require("./js/setDefaultConfigurations.js")
+        require("./renderer.js");
+        require("./js/filterPaths.js");
+        require("./js/filterSearchLineContents.js");
+        require("./js/filterNeglectLineContents.js"); 
+    </script>
+
+</body>
+
+</html>

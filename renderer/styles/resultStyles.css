@@ -1,0 +1,58 @@
+.title-container {
+    display: flex;
+    background-color: aquamarine;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px 10px 10px 5px;
+}
+
+.title {
+    color: red;
+    margin-left: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    word-break: break-word;
+    margin-right: 10px;
+}
+
+.individual-count {
+    color: tomato;
+    margin-right: 20px;
+    white-space: nowrap;
+    align-self: center;
+}
+
+.linecontent-container {
+    display: flex;
+    overflow-x: hidden;
+    margin: 0px 10px;
+}
+
+.line-number {
+    color: red;
+    white-space: nowrap;
+}
+
+.line-content {
+    margin-left: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.line-content:hover {
+    background: lavender;
+    font-weight: bold;
+    text-overflow: clip;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.itemSelectedClass {
+    background-color: #a0c9eb;
+    text-overflow: clip;
+    white-space: normal;
+    word-break: break-word;
+}

@@ -1,0 +1,34 @@
+{
+  "name": "search",
+  "version": "1.0.0",
+  "description": "Search for the keywords in the workspace",
+  "main": "main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "watch": "nodemon --exec electron .",
+    "build": "electron-builder"
+  },
+  "homepage": "https://github.com/impavido-7/search.git",
+  "repository": "https://github.com/impavido-7/search.git",
+  "author": "Lakshman <lakshmanreddykp@gmail.com>",
+  "url": "https://github.com/impavido-7",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^19.0.4",
+    "electron-builder": "^23.0.3",
+    "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "electron-settings": "^4.0.2",
+    "electron-window-state": "^5.0.3",
+    "json2xls": "^0.1.2"
+  },
+  "build": {
+    "appId": "com.lakshman.search",
+    "linux": {
+      "target": "deb",
+      "category": "Utility",
+      "icon": "./build/images/"
+    }
+  }
+}
