@@ -6,5 +6,6 @@
         "Complete List",
         "Filtered List",
         "Cancel"
-    ]
+    ],
+    "seperator": ";"
 }

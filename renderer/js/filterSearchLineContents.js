@@ -10,6 +10,7 @@ const lineContentsSearchFrom = document.getElementById("line-contents-search-fro
 const generateHTML = require("./generateHTML");
 const storeResults = require("./storeResults");
 const { displayRespective } = require("./fileSearch");
+const { seperator } = require("../config/config.json");
 
 const initialize = (count) => {
     results.innerText = "";
@@ -58,7 +59,7 @@ lineContentsInclude.addEventListener("keydown", e => {
         const searchStyle = lineContentsSearchStyle.value; //  includeAll or includeAtleastOne
         const searchFrom = lineContentsSearchFrom.value; // filter or complete
 
-        let splitContents = searchContent.trim().split(" ");
+        let splitContents = searchContent.trim().split(seperator);
 
         if (splitContents.length && splitContents[0].length) {
             let inputArray, result, obj = {};

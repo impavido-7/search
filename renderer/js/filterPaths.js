@@ -10,6 +10,7 @@ const filePathSearchFrom = document.getElementById("file-path-search-from");
 const generateHTML = require("./generateHTML");
 const storeResults = require("./storeResults");
 const { displayRespective } = require("./fileSearch");
+const { seperator } = require("../config/config.json");
 
 const initialize = (count) => {
     results.innerText = "";
@@ -23,7 +24,7 @@ const makeHTMLChanges = (array) => {
 }
 
 const searchFilePath = (value, sortedArray, isSearch = false) => {
-    const entries = value.trim().split(" ");
+    const entries = value.trim().split(seperator);
     if (entries.length && entries[0].length) {
         for (let i = 0; i < entries.length; i++) {
             sortedArray = sortedArray.filter(item => !item.toLowerCase().includes(entries[i].toLowerCase()))

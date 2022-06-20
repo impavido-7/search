@@ -9,6 +9,7 @@ const lineContentsNeglectFrom = document.getElementById("line-contents-neglect-f
 const storeResults = require("./storeResults");
 const generateHTML = require("./generateHTML");
 const { displayRespective } = require("./fileSearch");
+const { seperator } = require("../config/config.json");
 
 const initialize = (count) => {
     results.innerText = "";
@@ -73,7 +74,7 @@ lineContentsNeglect.addEventListener("keydown", e => {
         const searchStyle = lineContentsNeglectStyle.value; //  includeAll or includeAtleastOne
         const searchFrom = lineContentsNeglectFrom.value; // filter or complete
 
-        let splitContents = neglectContent.trim().split(" ");
+        let splitContents = neglectContent.trim().split(seperator);
 
         if (splitContents.length && splitContents[0].length) {
             let result, data = getEntries(), obj = {};

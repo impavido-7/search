@@ -18,7 +18,10 @@ const openAllFiles = (files) => {
 }
 
 openAllBtn.addEventListener("click", e => {
-    openAllFiles(storeResults.filteredFilePaths);
+    if (storeResults.filteredFilePaths.length)
+        openAllFiles(storeResults.filteredFilePaths);
+    else
+        openAllFiles(storeResults.filePaths);
 });
 
 downloadBtn.addEventListener("click", e => {
