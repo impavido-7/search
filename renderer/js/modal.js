@@ -43,8 +43,8 @@ saveButton.addEventListener("click", e => {
     neglectFolders.value = neglectFolder.value;
     closeButton.click();
     config.defaultFolderPath = folderSelected.innerText;
-    config.defaultSearchKeyWord = searchKeyword.value.trim().split(" ")[0];
-    const neglectFolderValue = neglectFolder.value.trim().split(" ");
+    config.defaultSearchKeyWord = searchKeyword.value.trim().split(config.seperator)[0];
+    const neglectFolderValue = neglectFolder.value.trim().split(config.seperator);
     if (neglectFolderValue[0].length)
         config.defaultNeglectFolders = neglectFolderValue;
     else

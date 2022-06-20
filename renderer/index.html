@@ -35,8 +35,7 @@
                 <div class="form-entry">
                     <label> Set default neglect folders </label>
                     <input id="neglect-folders-dialog" type="text" class="form-control"
-                        placeholder="Default Neglect Folders"
-                        title="You can enter multiple folders seperated by a space">
+                        placeholder="Default Neglect Folders">
                 </div> <br />
                 <div class="form-entry button-container-modal">
                     <button id="modal-close" class="folder-btn"> Close </button>
@@ -64,8 +63,7 @@
                     <br />
                     <div class="form-entry">
                         <label> Neglect from folders </label>
-                        <input id="neglect-folders" type="text" class="form-control" placeholder="Neglect Folders"
-                            title="You can enter multiple folders seperated by a space">
+                        <input id="neglect-folders" type="text" class="form-control" placeholder="Neglect Folders">
                     </div>
                     <br /> <br />
                     <div class="form-entry flex-display">
@@ -111,14 +109,12 @@
                     <div class="flex-display margin-top-10px">
                         <div class="flex-one">
                             <label> Include </label>
-                            <input type="text" class="form-control" placeholder="abc" id="file-path-include"
-                                title="You can enter multiple entries divided by spaces and then press enter" />
+                            <input type="text" class="form-control" placeholder="abc" id="file-path-include" />
                         </div>
                         <div class="spacer"> </div>
                         <div class="flex-one">
                             <label> Neglect </label>
-                            <input type="text" class="form-control" placeholder="abc" id="file-path-neglect"
-                                title="You can enter multiple entries divided by spaces and then press enter" />
+                            <input type="text" class="form-control" placeholder="abc" id="file-path-neglect" />
                         </div>
                         <div class="spacer"> </div>
                         <div class="flex-one">
@@ -143,8 +139,7 @@
                         <div class="flex-display margin-top-10px">
                             <div class="flex-one">
                                 <label> Include </label>
-                                <input type="text" class="form-control" placeholder="abc" id="line-contents-include"
-                                    title="You can enter multiple entries divided by spaces and then press enter" />
+                                <input type="text" class="form-control" placeholder="abc" id="line-contents-include" />
                             </div>
                             <div class="spacer"> </div>
                             <div class="flex-one">
@@ -168,8 +163,7 @@
                         <div class="flex-display margin-top-10px">
                             <div class="flex-one">
                                 <label> Neglect </label>
-                                <input type="text" class="form-control" placeholder="abc" id="line-contents-neglect"
-                                    title="You can enter multiple entries divided by spaces and then press enter" />
+                                <input type="text" class="form-control" placeholder="abc" id="line-contents-neglect" />
                             </div>
                             <div class="spacer"> </div>
                             <div class="flex-one">
@@ -232,6 +226,7 @@
     </div>
 
     <script>
+        require("./js/setTitle.js");
         require("./js/modal.js");
         require("./renderer.js");
         require("./js/filterPaths.js");

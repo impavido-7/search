@@ -26,12 +26,12 @@ module.exports = (args) => {
         // Set the default values for modal
         folderSelected.innerText = config.defaultFolderPath || "No folder selected";
         searchKeyword.value = config.defaultSearchKeyWord;
-        neglectFolder.value = config.defaultNeglectFolders.join(" ");
+        neglectFolder.value = config.defaultNeglectFolders.join(config.seperator);
 
         // Set the default values for main page
         folderSelectedElement.innerText = config.defaultFolderPath || "No folder selected";
         keyword.value = config.defaultSearchKeyWord;
-        neglectFolders.value = config.defaultNeglectFolders.join(" ");
+        neglectFolders.value = config.defaultNeglectFolders.join(config.seperator);
 
         // Send the folder path to modal.js
         modal.setFolderPath = args;

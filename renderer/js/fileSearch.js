@@ -12,6 +12,7 @@ const containResults = document.getElementById("results-container");
 // Import the modules
 const generateHTMLContent = require("./generateHTML");
 const { setHitCount } = require("./resultParameters");
+const { seperator } = require("../config/config.json");
 
 const storeResults = require("./storeResults");
 
@@ -67,7 +68,7 @@ const searchFileContents = (path) => {
 // Traverse through all the folders and 
 const searchKeyword = (folder) => {
     const elements = fs.readdirSync(folder);
-    const foldersToBeNeglected = neglectFolders.value.trim().split(" ");
+    const foldersToBeNeglected = neglectFolders.value.trim().split(seperator);
     elements.forEach(element => {
         if (foldersToBeNeglected.indexOf(element) === -1) {
             const individual_path = folder + "/" + element;
