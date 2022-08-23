@@ -34,6 +34,13 @@ ipcRenderer.on("answer-open-download-dialog", (e, args) => {
     }
     else if (config.dialogMessageArray[ans] === "Filtered List") {
         object = require("./storeResults").filteredLineSearchContents;
+        if(Object.keys(object).length === 0 && require("./storeResults").filteredFilePaths.length > 0) {
+            const completeList = require("./storeResults").lineSearchContents;
+            const filteredPaths = require("./storeResults").filteredFilePaths;
+            filteredPaths.forEach(item => {
+                object[item] = completeList[item];
+            })
+        }
     }
     ipcRenderer.send("download-items", {
         data: object,
